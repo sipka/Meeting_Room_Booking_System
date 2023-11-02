@@ -2,13 +2,13 @@ import streamlit as st
 import datetime
 import csv
 from datetime import timedelta
-import random  # Import the random module
+import random 
 import pandas as pd
 import re
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-from pytz import timezone  # Import the timezone function from pytz
+from pytz import timezone 
 import pytz
 
 # Set the timezone to "Asia/Kolkata" (Indian Standard Time)
@@ -300,8 +300,8 @@ def cancel_room():
 
 def send_cancellation_email(user_email,booking_id,name,description,date1,selected_room,start_time,end_time):
     # Your email credentials
-    sender_email = "kanish.tulasi2003@gmail.com"
-    sender_password = "rxsjxhurzdlmqecf"
+    sender_email = st.secrets['sender_email']
+    sender_password = st.secrets['sender_password']
 
     # Create the email content
     message = MIMEMultipart()
@@ -436,8 +436,8 @@ def view_reservations():
 
 def send_confirmation_email(user_email,booking_id,name,description,selected_room,start_time,end_time):
     # Your email credentials
-    sender_email = "kanish.tulasi2003@gmail.com"
-    sender_password = "rxsjxhurzdlmqecf"
+    sender_email = st.secrets['sender_email']
+    sender_password = st.secrets['sender_password']
 
     # Create the email content
     message = MIMEMultipart()
